@@ -29,7 +29,7 @@
         }
 
         [HttpGet("{uniqueName}/likes/users/count")]
-        public ActionResult<int> GetUsersPerSessionCount(string uniqueName)
+        public ActionResult<int> GetUserCountPerSession(string uniqueName)
         {
             var likes = likesService.GetUsersPerSession(uniqueName);
 
