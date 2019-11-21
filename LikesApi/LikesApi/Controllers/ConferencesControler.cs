@@ -15,10 +15,10 @@
             this.likesService = likesService;
         }
 
-        [HttpGet("{id}/likes/users")]
-        public ActionResult<List<string>> GetConferences(string id)
+        [HttpGet("{uniqueName}/likes/users")]
+        public ActionResult<List<string>> GetConferences(string uniqueName)
         {
-            var likes = likesService.GetUsersPerConference(id);
+            var likes = likesService.GetUsersPerConference(uniqueName);
 
             if (likes == null)
             {
@@ -28,10 +28,10 @@
             return likes;
         }
 
-        [HttpGet("{id}/likes/users/count")]
-        public ActionResult<int> GetConferencesCount(string id)
+        [HttpGet("{uniqueName}/likes/users/count")]
+        public ActionResult<int> GetConferencesCount(string uniqueName)
         {
-            var likes = likesService.GetUsersPerConference(id);
+            var likes = likesService.GetUsersPerConference(uniqueName);
 
             if (likes == null)
             {
@@ -41,12 +41,12 @@
             return likes.Count;
         }
 
-        [HttpPost("{id}/likes")]
-        public IActionResult Create(string id, [FromBody] string userId)
+        [HttpPost("{uniqueName}/likes")]
+        public IActionResult Create(string uniqueName, [FromBody] string useruniqueName)
         {         
-            likesService.AddNewLikeForConference(userId, id);
+            likesService.AddNewLikeForConference(useruniqueName, uniqueName);
 
-            return new OkObjectResult(id);
+            return new OkObjectResult(uniqueName);
         }
     }
 }

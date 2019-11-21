@@ -27,14 +27,14 @@
             this.CreateDummyGraph();
         }
 
-        public void AddNewLikeForConference(string userId, string conferenceId)
+        public void AddNewLikeForConference(string userId, string uniqueName)
         {
-            this.AddNewLike(userId, conferenceId, ConferenceLabel);        
+            this.AddNewLike(userId, uniqueName, ConferenceLabel);        
         }
 
-        public void AddNewLikeForSession(string userId, string sessionId)
+        public void AddNewLikeForSession(string userId, string uniqueName)
         {
-            this.AddNewLike(userId, sessionId, SessionLabel);
+            this.AddNewLike(userId, uniqueName, SessionLabel);
         }
 
         public List<string> GetConferencesPerUser(string userId)
@@ -49,15 +49,15 @@
             return sessions;
         }
 
-        public List<string> GetUsersPerConference(string conferenceId)
+        public List<string> GetUsersPerConference(string uniqueName)
         {
-            var users = GetItems(conferenceId, ConferenceLabel, UserLabel, getInEdges: true);
+            var users = GetItems(uniqueName, ConferenceLabel, UserLabel, getInEdges: true);
             return users;
         }
 
-        public List<string> GetUsersPerSession(string sessionId)
+        public List<string> GetUsersPerSession(string uniqueName)
         {
-            var users = GetItems(sessionId, SessionLabel, UserLabel, getInEdges: true);
+            var users = GetItems(uniqueName, SessionLabel, UserLabel, getInEdges: true);
             return users;
         }
 
