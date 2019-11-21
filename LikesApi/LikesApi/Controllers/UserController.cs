@@ -16,7 +16,7 @@
         }
 
         [HttpGet("{userId}/likes/conferences")]
-        public ActionResult<List<string>> GetConferences(string userId)
+        public ActionResult<List<string>> GetConferencesPerUser(string userId)
         {
             var likes = likesService.GetConferencesPerUser(userId);
             
@@ -29,7 +29,7 @@
         }
 
         [HttpGet("{userId}/likes/conferences/count")]
-        public ActionResult<int> GetConferencesCount(string userId)
+        public ActionResult<int> GetConferencesPerUserCount(string userId)
         {
             var likes = likesService.GetConferencesPerUser(userId);
 
@@ -42,7 +42,7 @@
         }
 
         [HttpGet("{userId}/likes/sessions")]
-        public ActionResult<List<string>> GetSessions(string userId)
+        public ActionResult<List<string>> GetSessionsPerUser(string userId)
         {
             var likes = likesService.GetSessionsPerUser(userId);
 
@@ -55,7 +55,7 @@
         }
 
         [HttpGet("{userId}/likes/sessions/count")]
-        public ActionResult<int> GetSessionsCount(string userId)
+        public ActionResult<int> GetSessionsPerUserCount(string userId)
         {
             var likes = likesService.GetSessionsPerUser(userId);
 

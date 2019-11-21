@@ -16,7 +16,7 @@
         }
 
         [HttpGet("{uniqueName}/likes/users")]
-        public ActionResult<List<string>> GetUsers(string uniqueName)
+        public ActionResult<List<string>> GetUsersPerConference(string uniqueName)
         {
             var likes = likesService.GetUsersPerConference(uniqueName);
 
@@ -29,7 +29,7 @@
         }
 
         [HttpGet("{uniqueName}/likes/users/count")]
-        public ActionResult<int> GetUsersCount(string uniqueName)
+        public ActionResult<int> GetUsersCountPerConference(string uniqueName)
         {
             var likes = likesService.GetUsersPerConference(uniqueName);
 
@@ -42,7 +42,7 @@
         }
 
         [HttpPost("{uniqueName}/likes")]
-        public IActionResult Create(string uniqueName, [FromBody] string useruniqueName)
+        public IActionResult RegisterNewLikeForUser(string uniqueName, [FromBody] string useruniqueName)
         {         
             likesService.AddNewLikeForConference(useruniqueName, uniqueName);
 
