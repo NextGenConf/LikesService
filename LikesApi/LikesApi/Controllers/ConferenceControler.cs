@@ -16,7 +16,7 @@
         }
 
         [HttpGet("{uniqueName}/likes/users")]
-        public ActionResult<List<string>> GetConferences(string uniqueName)
+        public ActionResult<List<string>> GetUsers(string uniqueName)
         {
             var likes = likesService.GetUsersPerConference(uniqueName);
 
@@ -29,7 +29,7 @@
         }
 
         [HttpGet("{uniqueName}/likes/users/count")]
-        public ActionResult<int> GetConferencesCount(string uniqueName)
+        public ActionResult<int> GetUsersCount(string uniqueName)
         {
             var likes = likesService.GetUsersPerConference(uniqueName);
 
