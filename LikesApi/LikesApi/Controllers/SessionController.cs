@@ -6,19 +6,19 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class ConferencesController : ControllerBase
+    public class SessionController : ControllerBase
     {
         private readonly LikesService likesService;
 
-        public ConferencesController(LikesService likesService)
+        public SessionController(LikesService likesService)
         {
             this.likesService = likesService;
         }
 
         [HttpGet("{uniqueName}/likes/users")]
-        public ActionResult<List<string>> GetConferences(string uniqueName)
+        public ActionResult<List<string>> GetSessions(string uniqueName)
         {
-            var likes = likesService.GetUsersPerConference(uniqueName);
+            var likes = likesService.GetUsersPerSession(uniqueName);
 
             if (likes == null)
             {
@@ -29,9 +29,9 @@
         }
 
         [HttpGet("{uniqueName}/likes/users/count")]
-        public ActionResult<int> GetConferencesCount(string uniqueName)
+        public ActionResult<int> GetSessionsCount(string uniqueName)
         {
-            var likes = likesService.GetUsersPerConference(uniqueName);
+            var likes = likesService.GetUsersPerSession(uniqueName);
 
             if (likes == null)
             {
@@ -43,8 +43,8 @@
 
         [HttpPost("{uniqueName}/likes")]
         public IActionResult Create(string uniqueName, [FromBody] string useruniqueName)
-        {         
-            likesService.AddNewLikeForConference(useruniqueName, uniqueName);
+        {
+            likesService.AddNewLikeForSession(useruniqueName, uniqueName);
 
             return new OkObjectResult(uniqueName);
         }

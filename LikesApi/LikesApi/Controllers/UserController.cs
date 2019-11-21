@@ -6,11 +6,11 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController: ControllerBase
+    public class UserController: ControllerBase
     {
         private readonly LikesService likesService;
 
-        public UsersController(LikesService likesService)
+        public UserController(LikesService likesService)
         {
             this.likesService = likesService;
         }
